@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Municipality;
 use App\Http\Requests\StoreMunicipalityRequest;
 use App\Http\Requests\UpdateMunicipalityRequest;
+use Inertia\Inertia;
 
 class MunicipalityController extends Controller
 {
@@ -13,7 +14,9 @@ class MunicipalityController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Municipalities/Index', [
+            'municipalities' => Municipality::all(),
+        ]);
     }
 
     /**

@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
             'name' => 'Kenesu',
             'email' => 'kenesu@example.com',
             'password' => 1234567890,
+            'email_verified_at' => now(),
         ]);
     }
 }
