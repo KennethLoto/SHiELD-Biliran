@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Barangay;
 use App\Http\Requests\StoreBarangayRequest;
 use App\Http\Requests\UpdateBarangayRequest;
+use Inertia\Inertia;
 
 class BarangayController extends Controller
 {
@@ -13,7 +14,9 @@ class BarangayController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Barangays/Index', [
+            'barangays' => Barangay::with('municipality')->get(),
+        ]);
     }
 
     /**

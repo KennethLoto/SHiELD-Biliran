@@ -5,22 +5,26 @@ import { Head } from '@inertiajs/react';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
-        title: 'Municipalities',
-        href: '/dashboard',
+        title: 'Barangays',
+        href: '/barangays',
     },
 ];
 
-type Municipality = {
+type Barangay = {
     id: string;
     code: string;
-    municipality: string;
+    barangay: string;
+    municipality: {
+        id: string;
+        municipality: string;
+    };
 };
 
 interface Props {
-    municipalities: Municipality[];
+    barangays: Barangay[];
 }
 
-export default function Index({ municipalities = [] }: Props) {
+export default function Index({ barangays = [] }: Props) {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Dashboard" />
@@ -30,23 +34,25 @@ export default function Index({ municipalities = [] }: Props) {
                         <TableHeader>
                             <TableRow>
                                 <TableHead>#</TableHead>
-                                <TableHead>Code</TableHead>
                                 <TableHead>Municipality</TableHead>
+                                <TableHead>Code</TableHead>
+                                <TableHead>Barangay</TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
-                            {municipalities.length > 0 ? (
-                                municipalities.map((municipality, i) => (
-                                    <TableRow key={municipality.id}>
+                            {barangays.length > 0 ? (
+                                barangays.map((barangay, i) => (
+                                    <TableRow key={barangay.id}>
                                         <TableCell>{i + 1}</TableCell>
-                                        <TableCell>{municipality.code}</TableCell>
-                                        <TableCell>{municipality.municipality}</TableCell>
+                                        <TableCell>{barangay.municipality.municipality}</TableCell>
+                                        <TableCell>{barangay.code}</TableCell>
+                                        <TableCell>{barangay.barangay}</TableCell>
                                     </TableRow>
                                 ))
                             ) : (
                                 <TableRow>
-                                    <TableCell colSpan={3} className="text-center">
-                                        No municipalities found.
+                                    <TableCell colSpan={4} className="text-center">
+                                        No barangays found.
                                     </TableCell>
                                 </TableRow>
                             )}
