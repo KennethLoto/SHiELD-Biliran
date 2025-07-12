@@ -4,7 +4,7 @@ import { NavUser } from '@/components/nav-user';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { Building2, House, LayoutGrid } from 'lucide-react';
+import { Biohazard, Building2, House, LayoutGrid } from 'lucide-react';
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
@@ -24,6 +24,12 @@ const mainNavItems: NavItem[] = [
         title: 'Barangays',
         href: '/barangays',
         icon: House,
+    },
+
+    {
+        title: 'Diseases',
+        href: '/diseases',
+        icon: Biohazard,
     },
 ];
 
